@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMX + Django</title>
+    <script src="https://unpkg.com/htmx.org@1.6.0"></script>
+
+</head>
+<body>
+{% block content %}
+
+{% endblock %}
+<script>
+    document.body.addEventListener('htmx:configRequest', (event) => {
+        event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+    })
+</script>
+</body>
+</html>
